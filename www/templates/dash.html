@@ -1,0 +1,34 @@
+<ion-view class="bg-royal">
+  <ion-content>
+    <ion-refresher refreshing-icon="ion-loading-c" refreshing-text="获取数据中..." pulling-text="下拉刷新数据..." on-refresh="doRefresh()"></ion-refresher>
+    <div class="padding text-white">
+      <div class="padding-bottom" style="font-size: 24px;">
+        <span><i class="icon ion-location padding-right"></i>{{data.basic.city}}</span>
+        <span style="float: right;"><i class="wi {{data.now.cond.icon}} padding-right"></i>{{data.now.cond.txt}}</span>
+      </div>
+      <div class="text-muted">更新时间: {{data.basic.update.loc}}</div>
+      <div class="text-center" style="margin-top: 30px;margin-bottom: 20px;">
+        <div style="font-size: 80px;">
+          <div><i class="wi {{data.now.cond.icon}}"></i></div>
+          <div>{{data.now.tmp}}<i class="wi wi-celsius"></i></div>
+        </div>
+        <div>{{data.now.wind.dir}}, {{data.now.wind.sc}} 级, {{data.now.wind.spd}} kmph</div>
+        <div>体感温度: {{data.now.fl}}<i class="wi wi-celsius"></i></div>
+        <div>降水量: {{data.now.pcpn}}mm</div>
+        <div>相对湿度: {{data.now.hum}}%</div>
+        <div>能见度: {{data.now.vis}}km</div>
+        <div>气压: {{data.now.pres}}</div>
+        <div>空气质量: {{data.aqi.city.aqi}}, {{data.aqi.city.qlty}}</div>
+      </div>
+      <div class="card" style="background: transparent;">
+        <div class="item item-divider" style="background-color: rgba(250, 250, 250, 0.5);">温馨提示</div>
+        <div class="item item-text-wrap" style="background-color: rgba(250, 250, 250, 0.5);">
+          <div ng-repeat="suggest in data.suggestions"><b>{{suggest.brf}}:</b> {{suggest.txt}}</div>
+        </div>
+      </div>
+      <div class="text-muted" style="text-align:center;">
+        作者: qiuxiaoj@gmail.com
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
