@@ -8,7 +8,7 @@ angular.module('sw.controllers')
       noBackdrop: false
   });
 
-  var doService = function(){
+  var loadData = function(){
     WeatherService.getData().success(function(data) {
       $ionicLoading.hide();
       $scope.data = data;
@@ -18,10 +18,10 @@ angular.module('sw.controllers')
     });
   };
 
-  doService();
+  loadData();
   $scope.doRefresh = function(){
     console.log('refresh....');
-    doService();
+    loadData();
     //Stop the ion-refresher from spinning
     $scope.$broadcast('scroll.refreshComplete');
   };
